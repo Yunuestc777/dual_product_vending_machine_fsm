@@ -42,7 +42,7 @@ always @(*) begin
         case(sel) 
           1'b1: begin//买1.5元商品A
             case(current_state)
-              s0:begin if(money[0] == 1'b1) next_state = s1; //非阻塞
+              s0:begin if(money[0] == 1'b1) next_state = s1; //阻塞
                        else if (money[1] == 1'b1)  next_state = s2;
                        else  next_state = current_state;end
               s1:begin if(money[0] == 1'b1) next_state = s2; 
@@ -80,4 +80,5 @@ always @(*) begin
     endcase      
    end 
 end
+
 endmodule
